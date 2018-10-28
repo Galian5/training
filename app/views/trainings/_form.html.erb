@@ -1,29 +1,29 @@
 <%= form_for @training do |f| %>
     <%= render 'shared/errors', object: @training %>
-    <div>
+    <div class="form-group">
       <%= f.label :title %>
       <%= f.text_field :title %>
     </div>
 
-    <div>
+    <div class="form-group">
       <%= f.label :body %>
       <%= f.text_area :body %>
     </div>
 
 
-    <div>
+    <div class="form-group">
       <%= f.label :image %>
       <%= f.file_field :image %>
       <%= f.hidden_field :image_cache %>
     </div>
-    <div>
+    <div class="form-group">
     <% if @training.image? %>
         <%= image_tag @training.image.thumb.url %>
     <% end %>
     </div>
 
-    <div>
-      <p>Exercises:</p>
+    <div class="form-group">
+      <p><strong>Exercises:</strong></p>
       <div class="exercises">
         <%= f.fields_for :exercises do |ex| %>
             <%= render 'exercise_fields', f: ex %>

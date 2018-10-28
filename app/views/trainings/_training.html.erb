@@ -1,9 +1,9 @@
 <h2><%= link_to training.title, training_path(training) %></h2>
 
-<li>
+<li class="table-bordered">
   <% if training.exercises.any? %>
       Exercises:
-      <ul>
+      <ul >
         <% training.exercises.each do |ex| %>
             <li>
               <%= ex.name %>, <%= ex.series %>, <%= ex.repetitions %>
@@ -16,5 +16,5 @@
 
 <p><%= truncate(training.body, length: 150) %></p>
 
-<p><%= link_to 'Edit', edit_training_path(training) %></p>
+<p><%= link_to 'Edit', edit_training_path(training), class: 'btn-link' %></p>
 <hr>
