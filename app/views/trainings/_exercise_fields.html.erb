@@ -1,0 +1,17 @@
+<div class="nested-fields">
+
+  <%= f.label :name %>
+  <%= f.select :name, ExerciseName.all.collect{|x| [x.name]} %>
+
+  <%= f.label :series %>
+  <%= f.number_field :series, min: 1 %>
+
+  <%= f.label :repetitions %>
+  <%= f.number_field :repetitions, min: 1 %>
+
+  <%= f.check_box :_destroy %>
+
+  <%= link_to_remove_association "remove exercise", f %>
+
+
+</div>

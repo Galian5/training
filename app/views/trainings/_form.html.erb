@@ -1,0 +1,40 @@
+<%= form_for @training do |f| %>
+    <%= render 'shared/errors', object: @training %>
+    <div>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+
+    <div>
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+    </div>
+
+
+    <div>
+      <%= f.label :image %>
+      <%= f.file_field :image %>
+      <%= f.hidden_field :image_cache %>
+    </div>
+    <div>
+    <% if @training.image? %>
+        <%= image_tag @training.image.thumb.url %>
+    <% end %>
+    </div>
+
+    <div>
+      <p>Exercises:</p>
+      <div class="exercises">
+        <%= f.fields_for :exercises do |ex| %>
+            <%= render 'exercise_fields', f: ex %>
+        <% end %>
+      </div>
+    </div>
+    <div class="links">
+      <%= link_to_add_association 'Add exercise', f, :exercises %>
+
+    </div>
+
+    <%= f.submit %>
+
+<% end %>

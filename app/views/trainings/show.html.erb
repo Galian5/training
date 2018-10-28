@@ -1,0 +1,8 @@
+<%= link_to 'All trainings', trainings_path %>
+<h1><%= @training.title %></h1>
+
+<%= link_to(image_tag(@training.image.thumb.url, alt: 'Image'), @training.image.url, target: '_blank') if @training.image? %>
+
+<p><%= @training.body %></p>
+
+<p><%= link_to 'Edit', edit_training_path(@training) %></p>
