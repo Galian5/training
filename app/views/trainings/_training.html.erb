@@ -1,5 +1,9 @@
 <h2><%= link_to training.title, training_path(training) %></h2>
 
+<% if training.image? %>
+    <%= image_tag training.image.thumb.url %>
+<% end %>
+
 <li class="table-bordered">
   <% if training.exercises.any? %>
       Exercises:
@@ -12,6 +16,7 @@
       </ul>
   <% end %>
 </li>
+
 
 
 <p><%= truncate(training.body, length: 150) %></p>
